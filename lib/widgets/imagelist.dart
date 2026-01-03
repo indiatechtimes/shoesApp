@@ -41,59 +41,64 @@ class Imagelist extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(12),
-            child: Container(
-              width: 300,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
+            child: InkWell(
+              onTap: () {
+                print("tapped");
+              },
+              child: Container(
+                width: 300,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                ),
 
-              child: Row(
-                children: [
-                  SizedBox(
-                    height: 110,
-                    width: 110,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      height: 110,
+                      width: 110,
 
-                    child: Image.asset(imagelists[index]),
-                  ),
-                  SizedBox(width: 20),
+                      child: Image.asset(imagelists[index]),
+                    ),
+                    SizedBox(width: 20),
 
-                  Column(
-                    children: [
-                      Text(
-                        "Nike Shoe",
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                    Column(
+                      children: [
+                        Text(
+                          "Nike Shoe",
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
 
-                      Text(
-                        "Men's Shoe",
-                        style: TextStyle(fontSize: 15, color: Colors.blue),
-                      ),
-
-                      SizedBox(height: 20),
-
-                      Text(
-                        pricelist[index],
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                        Text(
+                          "Men's Shoe",
+                          style: TextStyle(fontSize: 15, color: Colors.blue),
                         ),
-                      ),
-                    ],
-                  ),
-                  Spacer(),
 
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.shopping_cart),
-                    iconSize: 35,
-                  ),
-                ],
+                        SizedBox(height: 20),
+
+                        Text(
+                          pricelist[index],
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Spacer(),
+
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.shopping_cart),
+                      iconSize: 35,
+                    ),
+                  ],
+                ),
               ),
             ),
           );
