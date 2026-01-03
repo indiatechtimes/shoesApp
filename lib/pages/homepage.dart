@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
-//import 'package:shoesapp_ui/widgets/imagelist.dart';
+import 'package:shoesapp_ui/widgets/imagelist.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -12,6 +12,7 @@ class Homepage extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 198, 217, 236),
 
         body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: Column(
             children: [
               Padding(
@@ -89,7 +90,10 @@ class Homepage extends StatelessWidget {
                 ),
               ),
 
-              //Imagelist(),
+              Imagelist(),
+
+
+              
             ],
           ),
         ),
