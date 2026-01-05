@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class Imagelist extends StatelessWidget {
-  final List imagelists = [
+  static final List<String> imagelists = [
     "assets/images/1.jpeg",
     "assets/images/2.jpeg",
     "assets/images/3.jpeg",
@@ -15,7 +15,7 @@ class Imagelist extends StatelessWidget {
     "assets/images/10.jpeg",
     "assets/images/11.jpeg",
   ];
-  final List pricelist = [
+  static final List<String> pricelist = [
     "\$99",
     "\$48",
     "\$99",
@@ -28,7 +28,7 @@ class Imagelist extends StatelessWidget {
     "\$104",
     "\$99",
   ];
-  Imagelist({super.key});
+  const Imagelist({super.key});
 
   @override
   Widget build(BuildContext context) {

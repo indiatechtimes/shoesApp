@@ -12,6 +12,7 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+
         backgroundColor: const Color.fromARGB(255, 198, 217, 236),
 
         body: SingleChildScrollView(
@@ -32,6 +33,7 @@ class Homepage extends StatelessWidget {
             ],
           ),
         ),
+        
       ),
     );
   }
