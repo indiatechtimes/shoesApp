@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:shoesapp_ui/pages/itempage.dart';
 
 // ignore: must_be_immutable
