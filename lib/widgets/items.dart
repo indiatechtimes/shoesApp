@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:shoesapp_ui/pages/itempage.dart';
 
 import 'package:shoesapp_ui/widgets/imagelist.dart';
 
@@ -20,7 +23,7 @@ class Items extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           child: InkWell(
             onTap: () {
-              print("tapped");
+              Get.to(() => Itempage(index: index));
             },
             child: Container(
               decoration: BoxDecoration(
@@ -36,18 +39,18 @@ class Items extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Nike Shoe",
+                          Imagelist.name[index],
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
                         ),
                         Text(
                           "Men's Shoe",
-                          style: TextStyle(fontSize: 14, color: Colors.blue),
+                          style: TextStyle(fontSize: 12, color: Colors.blue),
                         ),
-                        SizedBox(height: 8),
+
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [

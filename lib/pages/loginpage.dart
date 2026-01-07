@@ -18,23 +18,21 @@ class Loginpage extends StatelessWidget {
               //Login image
               Loginimage(),
 
-              //formfield ---  UserName
+              // formfild -- userName
               Usernameformfield(),
 
               SizedBox(height: 10),
-
-              //formfield ---- passcode
               Passcodeformfield(),
 
-              // Forget passcode
-              TextButton(onPressed: () {}, child: Text("Forget Passcode")),
+              //forget passcode
+              TextButton(onPressed: () {}, child: Text("Forget passcode")),
 
-              //sign In  button
+              //Sign in Button
               Signinbutton(),
 
               SizedBox(height: 70),
 
-              //Don't have account-SignUp
+              // Don't have acccount - signup
               Signup(),
             ],
           ),

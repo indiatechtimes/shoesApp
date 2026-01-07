@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:shoesapp_ui/pages/itempage.dart';
 
 // ignore: must_be_immutable
 class Imagelist extends StatelessWidget {
@@ -28,6 +31,19 @@ class Imagelist extends StatelessWidget {
     "\$104",
     "\$99",
   ];
+  static const List<String> name = [
+    "Nike Kyrie Flytrap",
+    "Nike LeBron 21",
+    "Nike Air Presto",
+    "Nike Pegasus 40",
+    "Nike Dunk Low",
+    "Nike Air Force 1",
+    "Nike Pegasus 40",
+    "Nike Cortez",
+    "Nike Shox TL",
+    "Nike Free Run",
+    "Nike Air Presto",
+  ];
   const Imagelist({super.key});
 
   @override
@@ -43,7 +59,7 @@ class Imagelist extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             child: InkWell(
               onTap: () {
-                print("tapped");
+                Get.to(Itempage(index: index));
               },
               child: Container(
                 width: 300,
