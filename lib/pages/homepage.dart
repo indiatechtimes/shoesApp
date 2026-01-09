@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoesapp_ui/widgets/bottomnavbar.dart';
 //import 'package:badges/badges.dart' as badges;
 import 'package:shoesapp_ui/widgets/homebar.dart';
 import 'package:shoesapp_ui/widgets/imagelist.dart';
@@ -33,6 +34,10 @@ class Homepage extends StatelessWidget {
             ],
           ),
         ),
+
+
+
+        bottomNavigationBar: Bottomnavbar(),
         
       ),
     );

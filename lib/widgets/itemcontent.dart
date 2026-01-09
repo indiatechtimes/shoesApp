@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shoesapp_ui/widgets/imagelist.dart';
 //import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -90,7 +91,18 @@ class Itemcontent extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(12),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.showSnackbar(
+                      GetSnackBar(
+                        title: 'Wow! ',
+                        backgroundColor: Colors.blue,
+                        borderRadius: 15,
+
+                        message: 'Item added to cart',
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
+                  },
                   child: Container(
                     alignment: Alignment.center,
                     height: 45,
