@@ -14,8 +14,14 @@ class Itempage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 198, 217, 236),
       body: SafeArea(
-        child: Column(
-          children: [Itemsbar(), Itemimage(index: index), Itemcontent(index: index,)],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Itemsbar(),
+              Itemimage(index: index),
+              Itemcontent(index: index),
+            ],
+          ),
         ),
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoesapp_ui/widgets/imagelist.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+//import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Itemcontent extends StatelessWidget {
   final int index;
@@ -9,9 +9,8 @@ class Itemcontent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.topLeft,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 226, 182, 179),
+        color: const Color.fromARGB(255, 198, 217, 236),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(24),
           topRight: Radius.circular(24),
@@ -19,6 +18,7 @@ class Itemcontent extends StatelessWidget {
       ),
 
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 10),
@@ -32,27 +32,96 @@ class Itemcontent extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                Spacer(),
 
-                Text(Imagelist.pricelist[index]),
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Text(
+                    Imagelist.pricelist[index],
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
 
-          SizedBox(height: 15),
+          Text(
+            "This is the description of the shoes product \nThis is the description of the shoes product \nThis is the description of the shoes product \nThis is the description of the shoes product \nThis is the description of the shoes product \nThis is the description of the shoes product \n ",
+          ),
 
-          RatingBar.builder(
-            initialRating: 3,
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Text(
+                  "Size:",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
 
-            itemSize: 30,
-            direction: Axis.horizontal,
-            itemCount: 5,
-            minRating: 1,
-            itemBuilder: (context, index) {
-              return Icon(Icons.favorite, color: Colors.red);
-            },
-            onRatingUpdate: (value) {
-              print("rating");
-            },
+              ...List.generate(5, (index) {
+                return InkWell(
+                  onTap: () {},
+                  child: Container(
+                    margin: EdgeInsets.all(5),
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Text('${index + 6}'),
+                  ),
+                );
+              }),
+            ],
+          ),
+
+          SizedBox(height: 10),
+
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 45,
+                    width: 180,
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Add To Cart",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(width: 20),
+
+                        Icon(Icons.shopping_cart),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Spacer(),
+
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.shopping_bag, color: Colors.red, size: 35),
+              ),
+            ],
           ),
         ],
       ),
