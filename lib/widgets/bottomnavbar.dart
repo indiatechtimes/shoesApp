@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-
+import 'package:shoesapp_ui/database/db_handler.dart';
 
 class Bottomnavbar extends StatelessWidget {
   const Bottomnavbar({super.key});
@@ -22,7 +22,14 @@ class Bottomnavbar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.category_outlined)),
+          IconButton(
+            onPressed: () async {
+              //await DBHandler().insertData("python", 57);
+              final data = await DBHandler().readData();
+              print(data);
+            },
+            icon: Icon(Icons.category_outlined),
+          ),
           IconButton(
             onPressed: () {
               Get.bottomSheet(
