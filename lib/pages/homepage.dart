@@ -7,19 +7,34 @@ import 'package:shoesapp_ui/widgets/items.dart';
 import 'package:shoesapp_ui/widgets/searchbox.dart';
 
 class Homepage extends StatelessWidget {
-  const Homepage({super.key});
+  final String? userName;
+
+  const Homepage({super.key, this.userName});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-
         backgroundColor: const Color.fromARGB(255, 198, 217, 236),
 
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
+              //Display user name
+              if (userName != null)
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    'Welcome, $userName!',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+
               //Homebar  More and notification bell
               Homebar(),
 
@@ -35,10 +50,7 @@ class Homepage extends StatelessWidget {
           ),
         ),
 
-
-
         bottomNavigationBar: Bottomnavbar(),
-        
       ),
     );
   }

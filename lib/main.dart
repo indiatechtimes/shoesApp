@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Shoesapp',
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-      home: const Loginpage(),
+      home: Loginpage(),
     );
   }
 }

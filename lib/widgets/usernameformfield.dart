@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Usernameformfield extends StatelessWidget {
-  const Usernameformfield({super.key});
+  Usernameformfield({super.key});
+
+  final TextEditingController usernameController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +24,24 @@ class Usernameformfield extends StatelessWidget {
             ),
           ],
         ),
-        child: TextFormField(
-          decoration: InputDecoration(
-            prefixIcon: Icon(Icons.person),
-            hintText: "Enter Username",
-            border: InputBorder.none,
+        child: Form(
+          key: formKey,
+          child: TextFormField(
+            controller: usernameController,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Username cannot be empty";
+              }
+              if (value.length < 3) {
+                return "Username must be 3 characters";
+              }
+              return null;
+            },
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.person),
+              hintText: "Enter Username",
+              border: InputBorder.none,
+            ),
           ),
         ),
       ),

@@ -3,15 +3,17 @@ import 'package:get/get.dart';
 import 'package:shoesapp_ui/pages/homepage.dart';
 
 class Signinbutton extends StatelessWidget {
-  const Signinbutton({super.key});
-
+  Signinbutton({super.key});
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: () {
-          Get.off(Homepage());
+          if (formKey.currentState!.validate()) {
+            Get.off(Homepage());
+          }
         },
         child: Container(
           alignment: Alignment.center,
@@ -23,7 +25,7 @@ class Signinbutton extends StatelessWidget {
           ),
 
           child: Text(
-            "Sign In",
+            "Login",
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
