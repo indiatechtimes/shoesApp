@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shoesapp_ui/pages/homepage.dart';
+import 'package:shoesapp_ui/controller/logincontroller.dart';
+//import 'package:shoesapp_ui/pages/homepage.dart';
 
+// ignore: must_be_immutable
 class Signinbutton extends StatelessWidget {
   Signinbutton({super.key});
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  final LoginController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: () {
-          if (formKey.currentState!.validate()) {
-            Get.off(Homepage());
-          }
+          controller.validateForm();
         },
         child: Container(
           alignment: Alignment.center,

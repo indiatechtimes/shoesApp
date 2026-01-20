@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:shoesapp_ui/controller/logincontroller.dart';
 
 class forms extends StatelessWidget {
   forms({super.key});
 
   final TextEditingController usernameController = TextEditingController();
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final TextEditingController passcodeController = TextEditingController();
 
+  final TextEditingController passcodeController = TextEditingController();
+  final LoginController controller = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,7 +18,7 @@ class forms extends StatelessWidget {
           padding: const EdgeInsets.all(12),
           child: Container(
             height: 35,
-    
+
             decoration: BoxDecoration(
               border: Border.all(color: Colors.black),
               borderRadius: BorderRadius.circular(8),
@@ -28,16 +31,8 @@ class forms extends StatelessWidget {
               ],
             ),
             child: TextFormField(
-              controller: usernameController,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return "Username cannot be empty";
-                }
-                if (value.length < 3) {
-                  return "Username must be 3 characters";
-                }
-                return null;
-              },
+              controller: controller.usernameController,
+
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.person),
                 hintText: "Enter Username",
@@ -46,12 +41,25 @@ class forms extends StatelessWidget {
             ),
           ),
         ),
-    
+
+        Obx(
+          () =>
+              controller.usernameError.value == null
+                  ? const SizedBox.shrink()
+                  : Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(
+                      controller.usernameError.value!,
+                      style: const TextStyle(color: Colors.red, fontSize: 12),
+                    ),
+                  ),
+        ),
+
         Padding(
           padding: const EdgeInsets.all(12),
           child: Container(
             height: 35,
-    
+
             decoration: BoxDecoration(
               border: Border.all(color: Colors.black),
               borderRadius: BorderRadius.circular(8),
@@ -64,30 +72,8 @@ class forms extends StatelessWidget {
               ],
             ),
             child: TextFormField(
-              controller: passcodeController,
-    
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return "Passcode cannot be empty";
-                }
-                if (value.length < 8) {
-                  return "Passcode must be at least 8 characters";
-                }
-                if (!RegExp(r'(?=.*[a-z])').hasMatch(value)) {
-                  return "Passcode must contain at least one lowercase letter";
-                }
-                if (!RegExp(r'(?=.*[A-Z])').hasMatch(value)) {
-                  return "Passcode must contain at least one uppercase letter";
-                }
-                if (!RegExp(r'(?=.*\d)').hasMatch(value)) {
-                  return "Passcode must contain at least one number";
-                }
-                if (!RegExp(r'(?=.*[@$!%*?&])').hasMatch(value)) {
-                  return "Passcode must contain at least one special character (@\$!%*?&)";
-                }
-                return null;
-              },
-    
+              controller: controller.passcodeController,
+
               obscureText: true,
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.lock),
@@ -96,6 +82,19 @@ class forms extends StatelessWidget {
               ),
             ),
           ),
+        ),
+
+        Obx(
+          () =>
+              controller.passcodeError.value == null
+                  ? const SizedBox.shrink()
+                  : Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(
+                      controller.passcodeError.value!,
+                      style: const TextStyle(color: Colors.red, fontSize: 12),
+                    ),
+                  ),
         ),
       ],
     );
