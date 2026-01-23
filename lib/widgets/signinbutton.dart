@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shoesapp_ui/controller/logincontroller.dart';
+import 'package:shoesapp_ui/database/db_handler.dart';
 //import 'package:shoesapp_ui/pages/homepage.dart';
 
 // ignore: must_be_immutable
 class Signinbutton extends StatelessWidget {
+  var dbhandler = DBHandler();
   Signinbutton({super.key});
 
   final LoginController controller = Get.find();
@@ -15,6 +17,7 @@ class Signinbutton extends StatelessWidget {
       child: InkWell(
         onTap: () {
           controller.validateForm();
+          
         },
         child: Container(
           alignment: Alignment.center,

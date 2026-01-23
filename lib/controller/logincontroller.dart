@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:shoesapp_ui/database/db_handler.dart';
 import 'package:shoesapp_ui/pages/homepage.dart';
 
 class LoginController extends GetxController {
+  final storage = GetStorage();
+  var dbhandler = DBHandler();
   final usernameController = TextEditingController();
   final passcodeController = TextEditingController();
 
   final usernameError = RxnString();
   final passcodeError = RxnString();
 
-  
+  var username = "".obs;
 
   void validateForm() {
     bool valid = true;
@@ -22,7 +26,7 @@ class LoginController extends GetxController {
       usernameError.value = "Username must be 3 characters";
       valid = false;
     } else {
-      usernameError.value = null;
+      username.value = usernameController.text;
     }
 
     // Passcode validation
@@ -37,7 +41,19 @@ class LoginController extends GetxController {
     }
 
     if (valid) {
-      Get.off(Homepage()); // or Homepage()
+
+
+      storage.write("isLoggedIn", true);
+      storage.write("username", controller.username);
+      Get.off(Homepage());
+
+      
+      dbhandler.insertData(
+        controller.username.value,
+        controller.passcodeController.text,
+      );
+
+      
     }
   }
 

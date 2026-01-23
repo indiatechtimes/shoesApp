@@ -7,9 +7,9 @@ import 'package:shoesapp_ui/widgets/items.dart';
 import 'package:shoesapp_ui/widgets/searchbox.dart';
 
 class Homepage extends StatelessWidget {
-  final String? userName;
+  
 
-  const Homepage({super.key, this.userName});
+  const Homepage({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -21,20 +21,6 @@ class Homepage extends StatelessWidget {
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              //Display user name
-              if (userName != null)
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    'Welcome, $userName!',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
-                    ),
-                  ),
-                ),
-
               //Homebar  More and notification bell
               Homebar(),
 

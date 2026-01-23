@@ -1,8 +1,13 @@
 import 'dart:io';
 
+import 'package:get/get.dart';
+//import 'package:get/get_core/src/get_main.dart';
+import 'package:shoesapp_ui/controller/logincontroller.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
+
+final LoginController controller = Get.put(LoginController());
 
 class DBHandler {
   Database? _database;
@@ -20,11 +25,11 @@ class DBHandler {
       onCreate: (db, version) {
         db.execute('''
           
-          CREATE TABLE DatabaseTable(
+          CREATE TABLE user(
           
           id INTEGER PRIMARY KEY,
-          name TEXT,
-          age  INTEGER
+          username TEXT,
+          passcode  TEXT
           
           )
 
@@ -36,14 +41,17 @@ class DBHandler {
     return _database!;
   }
 
-  Future<void> insertData(String name, int age) async {
+  Future<void> insertData(String username, var passcode) async {
     Database? db = await database();
-    await db?.insert('DatabaseTable', {'name': name, 'age': age});
+    await db?.insert('user', {
+      'username': username,
+      'passcode': passcode,
+    });
   }
 
   Future<List<Map<String, dynamic>>> readData() async {
     Database? db = await database();
-    final list = await db!.query('DatabaseTable');
+    final list = await db!.query('user');
     return list;
   }
 

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-//import 'package:shoesapp_ui/pages/homepage.dart';
-//import 'package:shoesapp_ui/pages/homepage.dart';
-import 'package:shoesapp_ui/pages/loginpage.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:shoesapp_ui/pages/authcheck.dart';
 
-void main() {
+//import 'package:shoesapp_ui/pages/homepage.dart';
+//import 'package:shoesapp_ui/pages/homepage.dart';
+//import 'package:shoesapp_ui/pages/loginpage.dart';
+
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -18,7 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Shoesapp',
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-      home: Loginpage(),
+      home: Authcheck(),
     );
   }
 }
