@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:shoesapp_ui/database/db_handler.dart';
 
 class Bottomnavbar extends StatelessWidget {
@@ -8,6 +9,7 @@ class Bottomnavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final storage = GetStorage();
     return Container(
       height: 50,
       decoration: BoxDecoration(
@@ -24,7 +26,10 @@ class Bottomnavbar extends StatelessWidget {
         children: [
           IconButton(
             onPressed: () async {
-              //await DBHandler().insertData("python", 57);
+              var name = storage.read('username');
+              var passcode = storage.read('passcode');
+              print("Username is $name");
+              print("passcode is $passcode");
               final data = await DBHandler().readData();
               print(data);
             },

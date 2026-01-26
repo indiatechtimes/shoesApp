@@ -1,13 +1,13 @@
 import 'dart:io';
 
-import 'package:get/get.dart';
+//import 'package:get/get.dart';
 //import 'package:get/get_core/src/get_main.dart';
-import 'package:shoesapp_ui/controller/logincontroller.dart';
+//import 'package:shoesapp_ui/controller/logincontroller.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 
-final LoginController controller = Get.put(LoginController());
+
 
 class DBHandler {
   Database? _database;
@@ -30,6 +30,7 @@ class DBHandler {
           id INTEGER PRIMARY KEY,
           username TEXT,
           passcode  TEXT
+
           
           )
 
@@ -58,7 +59,7 @@ class DBHandler {
   Future<void> updateData(int id, String name, int age) async {
     Database? db = await database();
     await db?.update(
-      'DatabaseTable',
+      'user',
       {'name': name, 'age': age},
       where: 'id = ?',
       whereArgs: [id],
@@ -67,6 +68,6 @@ class DBHandler {
 
   Future<void> deleteData(int id) async {
     Database? db = await database();
-    await db?.delete('DatabaseTable', where: 'id = ?', whereArgs: [id]);
+    await db?.delete('user', where: 'id = ?', whereArgs: [id]);
   }
 }

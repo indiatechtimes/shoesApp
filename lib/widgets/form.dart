@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+//import 'package:get/get_core/src/get_main.dart';
 import 'package:shoesapp_ui/controller/logincontroller.dart';
 
+// ignore: must_be_immutable
 class forms extends StatelessWidget {
   forms({super.key});
 
-  final TextEditingController usernameController = TextEditingController();
+ 
 
-  final TextEditingController passcodeController = TextEditingController();
-  final LoginController controller = Get.put(LoginController());
+  
+ 
   @override
   Widget build(BuildContext context) {
+
+    final controller = Get.find<LoginController>();
     return Column(
       children: [
         Padding(

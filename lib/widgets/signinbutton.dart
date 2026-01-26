@@ -6,18 +6,20 @@ import 'package:shoesapp_ui/database/db_handler.dart';
 
 // ignore: must_be_immutable
 class Signinbutton extends StatelessWidget {
+  
   var dbhandler = DBHandler();
   Signinbutton({super.key});
 
-  final LoginController controller = Get.find();
+  
   @override
   Widget build(BuildContext context) {
+
+    final controller = Get.find<LoginController>();
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: () {
           controller.validateForm();
-          
         },
         child: Container(
           alignment: Alignment.center,

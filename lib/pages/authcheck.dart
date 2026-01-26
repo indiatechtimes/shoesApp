@@ -5,7 +5,7 @@ import 'package:shoesapp_ui/pages/loginpage.dart';
 
 class Authcheck extends StatelessWidget {
   final storage = GetStorage();
-   Authcheck({super.key});
+  Authcheck({super.key});
 
   @override
   Widget build(BuildContext context) {
